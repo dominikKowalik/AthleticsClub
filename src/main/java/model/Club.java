@@ -4,9 +4,11 @@ package model;
  * Created by dominik on 2016-12-22.
  */
 
+import javax.inject.Inject;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -15,7 +17,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name="klub")
+@Table(name="Klub")
 public class Club {
 
     @Id
@@ -32,10 +34,10 @@ public class Club {
     private String name;
 
     @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
-    private List<Building> buildingList;
+    private Set<Building> buildingList;
 
     @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
-    private List<Employee> employeeList;
+    private Set<Employee> employeeSet;
 
 
 

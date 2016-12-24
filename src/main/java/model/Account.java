@@ -1,13 +1,15 @@
 package model;
 
+import javax.inject.Inject;
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by dominik on 2016-12-23.
  */
 
 @Entity
-@Table(name = "konta")
+@Table(name = "Konta")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +23,8 @@ public class Account {
     @Column(name = "haslo", length = 30)
     private String password;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "employee")
-    @Basic(optional = false)
-    private Employee employee;
-
-
-
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
+    private Set<Employee> employeeSet;
 }
+
+

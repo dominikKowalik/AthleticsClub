@@ -1,6 +1,8 @@
 package model;
+import javax.inject.Inject;
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by dominik on 2016-12-22.
@@ -19,7 +21,6 @@ public class Voivodeship {
     @Column(length = 30, name = "nazwa")
     private String name;
 
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "voivodeship")
-    private List<Address> addressList;
+    private Set<Address> addressSet;
 }

@@ -1,7 +1,13 @@
 package model;
 
+import javax.inject.Inject;
 import javax.persistence.*;
 import model.Position;
+import org.hibernate.annotations.Cascade;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by dominik on 2016-12-22.
@@ -40,8 +46,6 @@ public class Employee{
     @Column(name = "pesel", length = 30)
     private String pesel;
 
-
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_klubu")
     @Basic(optional = false)
@@ -52,13 +56,18 @@ public class Employee{
     @Basic(optional = false)
     private Address address;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_stanowiska")
     private Position position;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_konta")
     private Account account;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="Pracownicy_Harmonogramy",
+            joinColumns={@JoinColumn(name="id_pracownika")},
+            inverseJoinColumns={@JoinColumn(name="id_hramonogramu")})
+    @Autowired
+    private Set<WorkSchedule> workScheduleSet;
 }

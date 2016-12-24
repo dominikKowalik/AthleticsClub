@@ -7,22 +7,26 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- Entity classes -->
-        <class>model.Club</class>
+        <class>model.WorkSchedule</class>
+        <class>model.Position</class>
+        <class>model.Account</class>
         <class>model.Building</class>
-
-
+        <class>model.Club</class>
+        <class>model.Employee</class>
+        <class>model.Voivodeship</class>
+        <class>model.Address</class>
         <properties>
             <!-- The JDBC URL to the database instance -->
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/sportclub?useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
+                      value="jdbc:mysql://localhost:3306/sportclub?useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
 
             <!-- The database username -->
-            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.user" value="root"/>
 
             <!-- The database password -->
-            <property name="javax.persistence.jdbc.password" value="domo1234" />
-            
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="javax.persistence.jdbc.password" value="domo1234"/>
+
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>

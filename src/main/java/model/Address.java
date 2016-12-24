@@ -3,8 +3,10 @@ package model;
 import net.bytebuddy.dynamic.loading.ClassReloadingStrategy;
 import org.hibernate.annotations.ListIndexBase;
 
+import javax.inject.Inject;
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by dominik on 2016-12-22.
@@ -15,6 +17,7 @@ import java.util.List;
 public class Address{
 
     @Id
+    @Column(name = "id_adresu")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer addressId;
 
@@ -27,11 +30,11 @@ public class Address{
     private String street;
 
     @Basic(optional = false)
-    @Column(name = "ulica", length = 30)
+    @Column(name = "kod_pocztowy", length = 30)
     private String zipCode;
 
     @Basic(optional = false)
-    @Column(name = "ulica", length = 30)
+    @Column(name = "miasto", length = 30)
     private String city;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -42,6 +45,7 @@ public class Address{
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
     @Basic(optional = false)
-    private List<Employee> employee;
+    @Inject
+    private Set<Employee> employeeSet;
 
 }
