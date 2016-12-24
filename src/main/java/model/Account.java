@@ -1,5 +1,7 @@
 package model;
 
+import org.springframework.stereotype.Component;
+
 import javax.inject.Inject;
 import javax.persistence.*;
 import java.util.Set;
@@ -7,6 +9,7 @@ import java.util.Set;
 /**
  * Created by dominik on 2016-12-23.
  */
+
 
 @Entity
 @Table(name = "Konta")

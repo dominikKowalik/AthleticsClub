@@ -29,6 +29,12 @@ public class Beans {
 
     @Bean
     @Scope("prototype")
+    public WorkSchedule workSchedule(){
+        return new WorkSchedule();
+    }
+
+    @Bean
+    @Scope("prototype")
     public Set<Account> accountSet(){
         return new HashSet<>();
     }

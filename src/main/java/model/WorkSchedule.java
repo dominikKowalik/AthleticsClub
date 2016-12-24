@@ -21,6 +21,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Harmonogramy_pracy")
+@Service
 public class WorkSchedule {
 
     @Id
@@ -40,6 +41,7 @@ public class WorkSchedule {
     private Integer workLength;
 
     @ManyToMany(mappedBy = "workScheduleSet")
+    @Inject
     private Set<Employee> employeeSet;
 
     public Integer getWorkScheduleId() {
