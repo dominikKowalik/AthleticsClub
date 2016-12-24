@@ -1,12 +1,7 @@
 package model;
-
 import javax.inject.Inject;
 import javax.persistence.*;
-import model.Position;
-import org.hibernate.annotations.Cascade;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -43,31 +38,39 @@ public class Employee{
     private String fatherName;
 
     @Basic(optional = false)
-    @Column(name = "pesel", length = 30)
+    @Column(name = "pesel", length = 30, unique = true)
     private String pesel;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_klubu")
     @Basic(optional = false)
+    @Inject
     private Club club;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_adresu")
     @Basic(optional = false)
+    @Inject
     private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_stanowiska")
+    @Inject
     private Position position;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_konta")
+    @Inject
     private Account account;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="Pracownicy_Harmonogramy",
             joinColumns={@JoinColumn(name="id_pracownika")},
             inverseJoinColumns={@JoinColumn(name="id_hramonogramu")})
-    @Autowired
+    @Inject
     private Set<WorkSchedule> workScheduleSet;
 }
+
+/*
+jak ustaić w account ze jak istnieje to musi byc not null
+ */

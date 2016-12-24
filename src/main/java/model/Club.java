@@ -34,12 +34,16 @@ public class Club {
     private String name;
 
     @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
+    @Inject
     private Set<Building> buildingList;
 
     @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
+    @Inject
     private Set<Employee> employeeSet;
 
-
+    @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
+    @Inject
+    private Set<Employee> clubMemberSet;
 
 
 

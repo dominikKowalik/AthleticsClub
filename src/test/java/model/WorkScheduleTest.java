@@ -1,3 +1,5 @@
+package model;
+
 import configuration.Beans;
 import model.WorkSchedule;
 import org.junit.Test;
@@ -20,7 +22,7 @@ import javax.inject.Inject;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {Beans.class})
-public class WrokScheduleTest {
+public class WorkScheduleTest {
 
     @Inject
     private WorkSchedule workSchedule;
@@ -34,6 +36,4 @@ public class WrokScheduleTest {
     public void isEmployeeSetNotNull(){
         assertNotNull(workSchedule.getEmployeeSet());
     }
-
-
 }

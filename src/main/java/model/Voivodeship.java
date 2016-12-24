@@ -11,7 +11,6 @@ import java.util.Set;
 @Entity
 @Table(name = "wojewodztwa")
 public class Voivodeship {
-
     @Id
     @Column(name = "id_wojewodztwa")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +21,6 @@ public class Voivodeship {
     private String name;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "voivodeship")
+    @Inject
     private Set<Address> addressSet;
 }

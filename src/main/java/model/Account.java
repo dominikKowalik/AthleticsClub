@@ -25,9 +25,6 @@ public class Account {
     @Basic(optional = false)
     @Column(name = "haslo", length = 30)
     private String password;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
-    private Set<Employee> employeeSet;
 }
 
 

@@ -1,5 +1,6 @@
 package model;
 
+import javax.inject.Inject;
 import javax.persistence.*;
 
 /**
@@ -28,6 +29,7 @@ public class Building {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_klubu")
     @Basic(optional = false)
+    @Inject
     private Club club;
 
 

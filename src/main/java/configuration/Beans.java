@@ -35,6 +35,10 @@ public class Beans {
 
     @Bean
     @Scope("prototype")
+    public Set<ClubMember> clubMemberSet() {return new HashSet<>();}
+
+    @Bean
+    @Scope("prototype")
     public Set<Account> accountSet(){
         return new HashSet<>();
     }

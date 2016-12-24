@@ -7,14 +7,18 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- Entity classes -->
-        <class>model.WorkSchedule</class>
         <class>model.Position</class>
-        <class>model.Account</class>
-        <class>model.Building</class>
-        <class>model.Club</class>
         <class>model.Employee</class>
+        <class>model.Achievement</class>
+        <class>model.Club</class>
+        <class>model.ClubMember</class>
+        <class>model.Discipline</class>
+        <class>model.TrainingSchedule</class>
         <class>model.Voivodeship</class>
+        <class>model.WorkSchedule</class>
+        <class>model.Account</class>
         <class>model.Address</class>
+        <class>model.Building</class>
 
 
         <properties>

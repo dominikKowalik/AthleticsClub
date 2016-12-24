@@ -40,8 +40,8 @@ public class Address{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_wojewodztwa")
     @Basic(optional = false)
+    @Inject
     private Voivodeship voivodeship;
-
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
     @Basic(optional = false)

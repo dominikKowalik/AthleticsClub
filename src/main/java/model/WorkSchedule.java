@@ -21,7 +21,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Harmonogramy_pracy")
-@Service
 public class WorkSchedule {
 
     @Id
@@ -29,10 +28,8 @@ public class WorkSchedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer workScheduleId;
 
-
-    @Column(name = "Harmonogramy_Pracy", nullable = false)
+    @Column(name = "czas_rozpoczecia_pracy", nullable = false)
     private LocalDate workStartTime;
-
     /**
      * length of work in minutes
      */
