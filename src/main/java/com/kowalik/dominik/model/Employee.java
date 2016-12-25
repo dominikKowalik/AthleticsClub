@@ -1,7 +1,9 @@
-package model;
+package com.kowalik.dominik.model;
 import javax.inject.Inject;
 import javax.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Component;
+
 import java.util.Set;
 
 /**
@@ -10,6 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Pracownicy")
+@Component
 public class Employee{
 
     @Id

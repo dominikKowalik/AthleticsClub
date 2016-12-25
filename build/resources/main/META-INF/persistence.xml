@@ -2,23 +2,23 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
-    <persistence-unit name="SportClubPersistence" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="SportClubPersistence" >
         <!-- Persistence provider -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- Entity classes -->
-        <class>model.Position</class>
-        <class>model.Employee</class>
-        <class>model.Achievement</class>
-        <class>model.Club</class>
-        <class>model.ClubMember</class>
-        <class>model.Discipline</class>
-        <class>model.TrainingSchedule</class>
-        <class>model.Voivodeship</class>
-        <class>model.WorkSchedule</class>
-        <class>model.Account</class>
-        <class>model.Address</class>
-        <class>model.Building</class>
+        <class>com.kowalik.dominik.model.Position</class>
+        <class>com.kowalik.dominik.model.Employee</class>
+        <class>com.kowalik.dominik.model.Achievement</class>
+        <class>com.kowalik.dominik.model.Club</class>
+        <class>com.kowalik.dominik.model.ClubMember</class>
+        <class>com.kowalik.dominik.model.Discipline</class>
+        <class>com.kowalik.dominik.model.TrainingSchedule</class>
+        <class>com.kowalik.dominik.model.Voivodeship</class>
+        <class>com.kowalik.dominik.model.WorkSchedule</class>
+        <class>com.kowalik.dominik.model.Account</class>
+        <class>com.kowalik.dominik.model.Address</class>
+        <class>com.kowalik.dominik.model.Building</class>
 
 
         <properties>

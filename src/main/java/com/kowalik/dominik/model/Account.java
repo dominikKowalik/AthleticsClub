@@ -1,10 +1,8 @@
-package model;
+package com.kowalik.dominik.model;
 
 import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by dominik on 2016-12-23.
@@ -13,6 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Konta")
+@Component
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

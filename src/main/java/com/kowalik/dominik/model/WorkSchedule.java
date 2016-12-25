@@ -1,18 +1,11 @@
-package model;
+package com.kowalik.dominik.model;
 
-import com.sun.javafx.beans.IDProperty;
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.JoinColumnOrFormula;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -21,6 +14,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Harmonogramy_pracy")
+@Component
 public class WorkSchedule {
 
     @Id

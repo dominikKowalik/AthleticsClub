@@ -1,9 +1,10 @@
-package model;
+package com.kowalik.dominik.model;
+
+import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlIDREF;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -14,13 +15,13 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Harmonogramy_Trenignow")
+@Component
 public class TrainingSchedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_treningu")
     private Integer trainingScheduleId;
-
 
     @Column(name = "czas_rozpoczecia_treningu", nullable = false)
     private LocalDate trainingStartTime;

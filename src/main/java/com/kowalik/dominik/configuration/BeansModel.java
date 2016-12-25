@@ -1,6 +1,6 @@
-package configuration;
+package com.kowalik.dominik.configuration;
 
-import model.*;
+import com.kowalik.dominik.model.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,9 +8,7 @@ import org.springframework.context.annotation.Scope;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -18,14 +16,8 @@ import java.util.Set;
  */
 
 @Configuration
-@ComponentScan
-public class Beans {
-
-    @Bean
-    @Scope("prototype")
-    public EntityManagerFactory entityManagerFactory(){
-        return Persistence.createEntityManagerFactory("SportClubPersistence");
-    }
+@ComponentScan()
+public class BeansModel {
 
     @Bean
     @Scope("prototype")

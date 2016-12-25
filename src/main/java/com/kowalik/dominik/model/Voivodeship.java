@@ -1,7 +1,8 @@
-package model;
+package com.kowalik.dominik.model;
+import org.springframework.stereotype.Component;
+
 import javax.inject.Inject;
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "wojewodztwa")
+@Component
 public class Voivodeship {
     @Id
     @Column(name = "id_wojewodztwa")

@@ -1,4 +1,6 @@
-package model;
+package com.kowalik.dominik.model;
+
+import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Obiekty")
+@Component
 public class Building {
 
     @Id

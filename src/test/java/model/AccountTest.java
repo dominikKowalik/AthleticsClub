@@ -1,7 +1,7 @@
 package model;
 
-import configuration.Beans;
-import model.Account;
+import com.kowalik.dominik.configuration.BeansModel;
+import com.kowalik.dominik.model.Account;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -14,7 +14,7 @@ import javax.inject.Inject;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {Beans.class})
+@ContextConfiguration(classes = {BeansModel.class})
 public class AccountTest {
 
     @Inject

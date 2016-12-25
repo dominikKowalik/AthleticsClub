@@ -1,15 +1,17 @@
-package model;
+package com.kowalik.dominik.model;
+
+import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Set;
 
 /**
  * Created by dominik on 2016-12-24.
  */
 @Entity
 @Table(name  = "Osiagniecia")
+@Component
 public class Achievement {
 
     @Id

@@ -1,11 +1,9 @@
-package model;
+package com.kowalik.dominik.model;
 
-import net.bytebuddy.dynamic.loading.ClassReloadingStrategy;
-import org.hibernate.annotations.ListIndexBase;
+import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,6 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="Adresy")
+@Component
 public class Address{
 
     @Id

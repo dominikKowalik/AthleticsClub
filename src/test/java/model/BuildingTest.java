@@ -1,6 +1,6 @@
 package model;
 
-import configuration.Beans;
+import com.kowalik.dominik.configuration.BeansModel;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -10,6 +10,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {Beans.class})
+@ContextConfiguration(classes = {BeansModel.class})
 public class BuildingTest {
 }

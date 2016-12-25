@@ -1,13 +1,14 @@
-package model;
+package com.kowalik.dominik.model;
 
 /**
  * Created by dominik on 2016-12-22.
  */
 
+import org.springframework.stereotype.Component;
+
 import javax.inject.Inject;
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 
@@ -18,6 +19,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="Klub")
+@Component
 public class Club {
 
     @Id
