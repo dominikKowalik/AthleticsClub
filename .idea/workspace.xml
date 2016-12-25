@@ -2,49 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b144f2c-3d47-4848-90f7-e2551682b905" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_beans_4_3_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_jdbc_4_3_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_orm_4_3_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_tx_4_3_5_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/configuration/BeansDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/dao/CRUDinterface.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/dao/ClubDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/main/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/dao/ClubDaoImplTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_beans_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/configuration/Beans.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/dao/ClubDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/main/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/PersistenceTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/dao/ClubDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/configuration/Beans.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/configuration/BeansModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/Account.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/Account.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/Achievement.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/Achievement.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/Address.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/Address.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/Building.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/Building.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/Club.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/Club.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/ClubMember.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/ClubMember.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/Discipline.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/Discipline.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/Employee.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/Position.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/Position.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/TrainingSchedule.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/TrainingSchedule.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/Voivodeship.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/Voivodeship.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/WorkSchedule.java" afterPath="$PROJECT_DIR$/src/main/java/com/kowalik/dominik/model/WorkSchedule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/SportClub_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/SportClub_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/SportClub_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/SportClub_test.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/build/resources/main/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/model/AccountTest.java" afterPath="$PROJECT_DIR$/src/test/java/model/AccountTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/model/AddressTest.java" afterPath="$PROJECT_DIR$/src/test/java/model/AddressTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/model/BuildingTest.java" afterPath="$PROJECT_DIR$/src/test/java/model/BuildingTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/model/ClubTest.java" afterPath="$PROJECT_DIR$/src/test/java/model/ClubTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/model/EmployeeTest.java" afterPath="$PROJECT_DIR$/src/test/java/model/EmployeeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/model/PositionTest.java" afterPath="$PROJECT_DIR$/src/test/java/model/PositionTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/model/VoivodeshipTest.java" afterPath="$PROJECT_DIR$/src/test/java/model/VoivodeshipTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/model/WorkScheduleTest.java" afterPath="$PROJECT_DIR$/src/test/java/model/WorkScheduleTest.java" />
     </list>
     <ignored path="SportClub.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1409,7 +1367,7 @@
       <workItem from="1482330352689" duration="1844000" />
       <workItem from="1482405512398" duration="21556000" />
       <workItem from="1482490323540" duration="29205000" />
-      <workItem from="1482608893720" duration="18881000" />
+      <workItem from="1482608893720" duration="18999000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1482533899772</created>
@@ -1446,7 +1404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482613958119</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Almost completed model without two classes: oplaty_czlokowskie, wynagrodzenia. toString, getters and setters, hash code and equals have been added.">
+      <created>1482629989052</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1482629989052</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1482,7 +1447,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72067000" />
+    <option name="totallyTimeSpent" value="72185000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
