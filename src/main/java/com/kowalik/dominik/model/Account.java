@@ -15,6 +15,7 @@ import javax.persistence.*;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_konta")
     private Integer accountId;
 
     @Basic(optional = false)

@@ -28,11 +28,9 @@
 
             <!-- The database username -->
             <property name="javax.persistence.jdbc.user" value="root"/>
-
             <!-- The database password -->
             <property name="javax.persistence.jdbc.password" value="domo1234"/>
-
-            <!--<property name="hibernate.hbm2ddl.auto" value="create-drop"/>-->
+            <!--<property name="hibernate.hbm2ddl.auto" value="create"/>-->
         </properties>
     </persistence-unit>
 </persistence>

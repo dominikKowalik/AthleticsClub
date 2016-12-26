@@ -16,7 +16,7 @@ import java.util.Set;
  */
 
 @Configuration
-@ComponentScan("com.kowalik.dominik.model")
+@ComponentScan({"com.kowalik.dominik.model"})
 public class BeansModel {
 
     @Bean

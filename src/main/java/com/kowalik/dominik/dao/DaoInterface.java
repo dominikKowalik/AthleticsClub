@@ -1,8 +1,11 @@
 package com.kowalik.dominik.dao;
 
+import com.kowalik.dominik.configuration.BeansDao;
 import com.kowalik.dominik.model.Club;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -25,6 +28,8 @@ public interface DaoInterface<t> {
 
     String getClassName();
 
+
+
     default void save(t t) {
         EntityManager entityManager = getEntityManagerFactory().createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
@@ -34,14 +39,12 @@ public interface DaoInterface<t> {
         entityManager.close();
     }
 
-
     default List<t> list() {
         EntityManager entityManager = getEntityManagerFactory().createEntityManager();
         List<t> clubList = entityManager.createQuery("select k from " + getClassName() + " k").getResultList();
         entityManager.close();
         return clubList;
     }
-
 
     default t getById(int id) throws ClassNotFoundException {
         EntityManager entityManager = getEntityManagerFactory().createEntityManager();
@@ -50,7 +53,6 @@ public interface DaoInterface<t> {
         session.close();
         return club;
     }
-
 
     default void remove(int id) {
         EntityManager entityManager = getEntityManagerFactory().createEntityManager();
@@ -69,7 +71,6 @@ public interface DaoInterface<t> {
         }
     }
 
-
     default public void update(t t) {
         EntityManager entityManager = getEntityManagerFactory().createEntityManager();
         Session session = entityManager.unwrap(Session.class);
@@ -86,10 +87,9 @@ public interface DaoInterface<t> {
         }
     }
 
-
     default EntityManagerFactory getEntityManagerFactory() {
-        return Persistence.createEntityManagerFactory("SportClubPersistence");
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeansDao.class);
+        return (EntityManagerFactory) applicationContext.getBean("localEntityManagerFactoryBean");
     }
-
 
 }

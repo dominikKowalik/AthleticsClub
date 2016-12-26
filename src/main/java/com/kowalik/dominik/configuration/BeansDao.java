@@ -16,20 +16,17 @@ import javax.persistence.Persistence;
  */
 
 @Configuration
+@ComponentScan({"com.kowalik.dominik.dao"})
 public class BeansDao {
-
-//   @Bean("entityManagerFactoryBean")
-//   public LocalEntityManagerFactoryBean entityManagerFactoryBean(){
-//       LocalEntityManagerFactoryBean localEntityManagerFactoryBean =
-//               new LocalEntityManagerFactoryBean();
-//       localEntityManagerFactoryBean.setPersistenceUnitName("SportClubPersistence");
-//       return localEntityManagerFactoryBean;
-//   }
-
-    @Bean
-    public ClubDaoImpl clubDao(){
-        return new ClubDaoImpl();
+    @Bean("localEntityManagerFactoryBean")
+    public LocalEntityManagerFactoryBean entityManagerFactoryBean(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        LocalEntityManagerFactoryBean localEntityManagerFactoryBean = new LocalEntityManagerFactoryBean();
+        localEntityManagerFactoryBean.setPersistenceUnitName("SportClubPersistence");
+        return localEntityManagerFactoryBean;
     }
-
-
 }

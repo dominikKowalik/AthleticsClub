@@ -1,0 +1,66 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Gradle : com.kowalik : SportClub-1.0-SNAPSHOT.war (exploded)">
+    <output-path>$PROJECT_DIR$/out/artifacts/SportClub/exploded/SportClub-1.0-SNAPSHOT.war</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$" />
+    </properties>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SportClub_main/web/Web Gradle : SportClub-1.0-SNAPSHOT.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SportClub_main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:5.2.5.Final" />
+          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-entitymanager:5.2.5.Final" />
+          <element id="library" level="project" name="Gradle: ch.qos.logback:logback-classic:1.1.8" />
+          <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.21" />
+          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.3.4.Final" />
+          <element id="library" level="project" name="Gradle: javax.el:javax.el-api:3.0.0" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-test:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-all:1.3" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-orm:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Gradle: javassist:javassist:3.12.1.GA" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.5" />
+          <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.3.0.Final" />
+          <element id="library" level="project" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
+          <element id="library" level="project" name="Gradle: org.javassist:javassist:3.20.0-GA" />
+          <element id="library" level="project" name="Gradle: antlr:antlr:2.7.7" />
+          <element id="library" level="project" name="Gradle: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1" />
+          <element id="library" level="project" name="Gradle: org.jboss:jandex:2.0.3.Final" />
+          <element id="library" level="project" name="Gradle: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
+          <element id="library" level="project" name="Gradle: javax.enterprise:cdi-api:1.1" />
+          <element id="library" level="project" name="Gradle: net.bytebuddy:byte-buddy:1.5.4" />
+          <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.1.8" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.21" />
+          <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: javax.el:el-api:2.2" />
+          <element id="library" level="project" name="Gradle: org.jboss.spec.javax.interceptor:jboss-interceptors-api_1.1_spec:1.0.0.Beta1" />
+          <element id="library" level="project" name="Gradle: javax.annotation:jsr250-api:1.0" />
+          <element id="library" level="project" name="Gradle: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.3.1" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.5.RELEASE" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.5/b3035f37e674c04dafe36a660c3815cc59f764e2/jackson-databind-2.8.5.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/SportClub/exploded/SportClub-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
