@@ -36,7 +36,6 @@ public class TrainingSchedule {
      * All club members have inserted at least one training schedule
      */
     @ManyToMany(mappedBy = "trainingScheduleSet")
-    @Inject
     private Set<ClubMember> clubMemberSet;
 
     public Integer getTrainingScheduleId() {
@@ -71,31 +70,7 @@ public class TrainingSchedule {
         this.clubMemberSet = clubMemberSet;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        TrainingSchedule that = (TrainingSchedule) o;
-
-        if (trainingScheduleId != null ? !trainingScheduleId.equals(that.trainingScheduleId) : that.trainingScheduleId != null)
-            return false;
-        if (trainingStartTime != null ? !trainingStartTime.equals(that.trainingStartTime) : that.trainingStartTime != null)
-            return false;
-        if (trainingLength != null ? !trainingLength.equals(that.trainingLength) : that.trainingLength != null)
-            return false;
-        return clubMemberSet != null ? clubMemberSet.equals(that.clubMemberSet) : that.clubMemberSet == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = trainingScheduleId != null ? trainingScheduleId.hashCode() : 0;
-        result = 31 * result + (trainingStartTime != null ? trainingStartTime.hashCode() : 0);
-        result = 31 * result + (trainingLength != null ? trainingLength.hashCode() : 0);
-        result = 31 * result + (clubMemberSet != null ? clubMemberSet.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {
@@ -105,5 +80,28 @@ public class TrainingSchedule {
                 ", trainingLength=" + trainingLength +
                 ", clubMemberSet=" + clubMemberSet +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TrainingSchedule that = (TrainingSchedule) o;
+
+        if (getTrainingScheduleId() != null ? !getTrainingScheduleId().equals(that.getTrainingScheduleId()) : that.getTrainingScheduleId() != null)
+            return false;
+        if (getTrainingStartTime() != null ? !getTrainingStartTime().equals(that.getTrainingStartTime()) : that.getTrainingStartTime() != null)
+            return false;
+        return getTrainingLength() != null ? getTrainingLength().equals(that.getTrainingLength()) : that.getTrainingLength() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getTrainingScheduleId() != null ? getTrainingScheduleId().hashCode() : 0;
+        result = 31 * result + (getTrainingStartTime() != null ? getTrainingStartTime().hashCode() : 0);
+        result = 31 * result + (getTrainingLength() != null ? getTrainingLength().hashCode() : 0);
+        return result;
     }
 }

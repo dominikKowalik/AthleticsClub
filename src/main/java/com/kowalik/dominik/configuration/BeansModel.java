@@ -16,22 +16,18 @@ import java.util.Set;
  */
 
 @Configuration
-@ComponentScan()
+@ComponentScan("com.kowalik.dominik.model")
 public class BeansModel {
 
     @Bean
     @Scope("prototype")
-    public WorkSchedule workSchedule(){
-        return new WorkSchedule();
+    public Set<Account> accountSet(){
+        return new HashSet<>();
     }
 
     @Bean
     @Scope("prototype")
-    public Set<ClubMember> clubMemberSet() {return new HashSet<>();}
-
-    @Bean
-    @Scope("prototype")
-    public Set<Account> accountSet(){
+    public Set<Achievement> achievementSet(){
         return new HashSet<>();
     }
 
@@ -55,13 +51,33 @@ public class BeansModel {
 
     @Bean
     @Scope("prototype")
-    public Set<Employee> employeeSet(){
+    public Set<ClubMember> clubMemberSet(){
         return new HashSet<>();
     }
 
     @Bean
     @Scope("prototype")
+    public Set<Discipline> disciplineSet(){
+        return new HashSet<>();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Set<Employee> employeeSet(){
+        return new HashSet<>();
+    }
+
+
+    @Bean
+    @Scope("prototype")
     public Set<Position> positionSet(){
+        return new HashSet<>();
+    }
+
+
+    @Bean
+    @Scope("prototype")
+    public Set<TrainingSchedule> trainingScheduleSet(){
         return new HashSet<>();
     }
 

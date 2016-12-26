@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "wojewodztwa")
-@Component
+@Component()
 public class Voivodeship {
     @Id
     @Column(name = "id_wojewodztwa")
@@ -23,29 +23,9 @@ public class Voivodeship {
     private String name;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "voivodeship")
-    @Inject
     private Set<Address> addressSet;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Voivodeship that = (Voivodeship) o;
-
-        if (voivodehipId != null ? !voivodehipId.equals(that.voivodehipId) : that.voivodehipId != null) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        return addressSet != null ? addressSet.equals(that.addressSet) : that.addressSet == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = voivodehipId != null ? voivodehipId.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (addressSet != null ? addressSet.hashCode() : 0);
-        return result;
-    }
 
     public Integer getVoivodehipId() {
 
@@ -79,5 +59,25 @@ public class Voivodeship {
                 ", name='" + name + '\'' +
                 ", addressSet=" + addressSet +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Voivodeship that = (Voivodeship) o;
+
+        if (getVoivodehipId() != null ? !getVoivodehipId().equals(that.getVoivodehipId()) : that.getVoivodehipId() != null)
+            return false;
+        return getName() != null ? getName().equals(that.getName()) : that.getName() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getVoivodehipId() != null ? getVoivodehipId().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        return result;
     }
 }

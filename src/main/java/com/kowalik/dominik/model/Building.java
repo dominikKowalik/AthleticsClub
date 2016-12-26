@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Obiekty")
-@Component
+@Component("building")
 public class Building {
 
     @Id
@@ -29,7 +29,7 @@ public class Building {
     @Column(name = "nr_telefonu", length = 30)
     private String phoneNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne( )
     @JoinColumn(name = "id_klubu")
     @Basic(optional = false)
     @Inject
@@ -76,31 +76,6 @@ public class Building {
         this.club = club;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Building building = (Building) o;
-
-        if (buildingId != null ? !buildingId.equals(building.buildingId) : building.buildingId != null) return false;
-        if (name != null ? !name.equals(building.name) : building.name != null) return false;
-        if (email != null ? !email.equals(building.email) : building.email != null) return false;
-        if (phoneNumber != null ? !phoneNumber.equals(building.phoneNumber) : building.phoneNumber != null)
-            return false;
-        return club != null ? club.equals(building.club) : building.club == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = buildingId != null ? buildingId.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
-        result = 31 * result + (club != null ? club.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {
@@ -111,5 +86,30 @@ public class Building {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", club=" + club +
                 '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Building building = (Building) o;
+
+        if (getBuildingId() != null ? !getBuildingId().equals(building.getBuildingId()) : building.getBuildingId() != null)
+            return false;
+        if (getName() != null ? !getName().equals(building.getName()) : building.getName() != null) return false;
+        if (getEmail() != null ? !getEmail().equals(building.getEmail()) : building.getEmail() != null) return false;
+        return getPhoneNumber() != null ? getPhoneNumber().equals(building.getPhoneNumber()) : building.getPhoneNumber() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getBuildingId() != null ? getBuildingId().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (getPhoneNumber() != null ? getPhoneNumber().hashCode() : 0);
+        return result;
     }
 }

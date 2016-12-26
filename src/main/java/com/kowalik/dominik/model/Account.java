@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Konta")
-@Component
+@Component("account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,26 +49,7 @@ public class Account {
         this.password = password;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Account account = (Account) o;
-
-        if (accountId != null ? !accountId.equals(account.accountId) : account.accountId != null) return false;
-        if (login != null ? !login.equals(account.login) : account.login != null) return false;
-        return password != null ? password.equals(account.password) : account.password == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = accountId != null ? accountId.hashCode() : 0;
-        result = 31 * result + (login != null ? login.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {
@@ -77,6 +58,28 @@ public class Account {
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Account account = (Account) o;
+
+        if (getAccountId() != null ? !getAccountId().equals(account.getAccountId()) : account.getAccountId() != null)
+            return false;
+        if (getLogin() != null ? !getLogin().equals(account.getLogin()) : account.getLogin() != null) return false;
+        return getPassword() != null ? getPassword().equals(account.getPassword()) : account.getPassword() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getAccountId() != null ? getAccountId().hashCode() : 0;
+        result = 31 * result + (getLogin() != null ? getLogin().hashCode() : 0);
+        result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
+        return result;
     }
 }
 

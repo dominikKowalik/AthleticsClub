@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="Adresy")
-@Component
+@Component("address")
 public class Address{
 
     @Id
@@ -44,7 +44,6 @@ public class Address{
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
     @Basic(optional = false)
-    @Inject
     private Set<Employee> employeeSet;
 
     public Integer getAddressId() {
@@ -103,34 +102,6 @@ public class Address{
         this.employeeSet = employeeSet;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Address address = (Address) o;
-
-        if (addressId != null ? !addressId.equals(address.addressId) : address.addressId != null) return false;
-        if (number != null ? !number.equals(address.number) : address.number != null) return false;
-        if (street != null ? !street.equals(address.street) : address.street != null) return false;
-        if (zipCode != null ? !zipCode.equals(address.zipCode) : address.zipCode != null) return false;
-        if (city != null ? !city.equals(address.city) : address.city != null) return false;
-        if (voivodeship != null ? !voivodeship.equals(address.voivodeship) : address.voivodeship != null) return false;
-        return employeeSet != null ? employeeSet.equals(address.employeeSet) : address.employeeSet == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = addressId != null ? addressId.hashCode() : 0;
-        result = 31 * result + (number != null ? number.hashCode() : 0);
-        result = 31 * result + (street != null ? street.hashCode() : 0);
-        result = 31 * result + (zipCode != null ? zipCode.hashCode() : 0);
-        result = 31 * result + (city != null ? city.hashCode() : 0);
-        result = 31 * result + (voivodeship != null ? voivodeship.hashCode() : 0);
-        result = 31 * result + (employeeSet != null ? employeeSet.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {
@@ -143,5 +114,32 @@ public class Address{
                 ", voivodeship=" + voivodeship +
                 ", employeeSet=" + employeeSet +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Address address = (Address) o;
+
+        if (getAddressId() != null ? !getAddressId().equals(address.getAddressId()) : address.getAddressId() != null)
+            return false;
+        if (getNumber() != null ? !getNumber().equals(address.getNumber()) : address.getNumber() != null) return false;
+        if (getStreet() != null ? !getStreet().equals(address.getStreet()) : address.getStreet() != null) return false;
+        if (getZipCode() != null ? !getZipCode().equals(address.getZipCode()) : address.getZipCode() != null)
+            return false;
+        return getCity() != null ? getCity().equals(address.getCity()) : address.getCity() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getAddressId() != null ? getAddressId().hashCode() : 0;
+        result = 31 * result + (getNumber() != null ? getNumber().hashCode() : 0);
+        result = 31 * result + (getStreet() != null ? getStreet().hashCode() : 0);
+        result = 31 * result + (getZipCode() != null ? getZipCode().hashCode() : 0);
+        result = 31 * result + (getCity() != null ? getCity().hashCode() : 0);
+        return result;
     }
 }

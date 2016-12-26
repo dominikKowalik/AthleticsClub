@@ -4,6 +4,7 @@ package com.kowalik.dominik.model;
  * Created by dominik on 2016-12-22.
  */
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -19,7 +20,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="Klub")
-@Component
+@Component("club")
 public class Club {
 
     @Id
@@ -35,17 +36,15 @@ public class Club {
     @Column(name = "nazwa", length = 30)
     private String name;
 
-    @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
-    @Inject
-    private Set<Building> buildingList;
+    @OneToMany(mappedBy = "club", fetch = FetchType.EAGER)
+    private Set<Building> buildingSet;
 
-    @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
-    @Inject
+    @OneToMany(mappedBy = "club", fetch = FetchType.EAGER)
     private Set<Employee> employeeSet;
 
-    @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
-    @Inject
-    private Set<Employee> clubMemberSet;
+    @OneToMany(mappedBy = "club", cascade = {CascadeType.ALL, CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @Qualifier("clubMemberSet")
+    private Set<ClubMember> clubMemberSet;
 
 
     public Integer getClubId() {
@@ -72,12 +71,12 @@ public class Club {
         this.name = name;
     }
 
-    public Set<Building> getBuildingList() {
-        return buildingList;
+    public Set<Building> getBuildingSet() {
+        return buildingSet;
     }
 
-    public void setBuildingList(Set<Building> buildingList) {
-        this.buildingList = buildingList;
+    public void setBuildingSet(Set<Building> buildingSet) {
+        this.buildingSet = buildingSet;
     }
 
     public Set<Employee> getEmployeeSet() {
@@ -88,12 +87,22 @@ public class Club {
         this.employeeSet = employeeSet;
     }
 
-    public Set<Employee> getClubMemberSet() {
+    public Set<ClubMember> getClubMemberSet() {
         return clubMemberSet;
     }
 
-    public void setClubMemberSet(Set<Employee> clubMemberSet) {
+    public void setClubMemberSet(Set<ClubMember> clubMemberSet) {
         this.clubMemberSet = clubMemberSet;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Club{" +
+                "clubId=" + clubId +
+                ", dateOfEstablishment=" + dateOfEstablishment +
+                ", name='" + name + '\'' +
+                '}';
     }
 
     @Override
@@ -103,36 +112,18 @@ public class Club {
 
         Club club = (Club) o;
 
-        if (clubId != null ? !clubId.equals(club.clubId) : club.clubId != null) return false;
-        if (dateOfEstablishment != null ? !dateOfEstablishment.equals(club.dateOfEstablishment) : club.dateOfEstablishment != null)
+        if (getClubId() != null ? !getClubId().equals(club.getClubId()) : club.getClubId() != null) return false;
+        if (getDateOfEstablishment() != null ? !getDateOfEstablishment().equals(club.getDateOfEstablishment()) : club.getDateOfEstablishment() != null)
             return false;
-        if (name != null ? !name.equals(club.name) : club.name != null) return false;
-        if (buildingList != null ? !buildingList.equals(club.buildingList) : club.buildingList != null) return false;
-        if (employeeSet != null ? !employeeSet.equals(club.employeeSet) : club.employeeSet != null) return false;
-        return clubMemberSet != null ? clubMemberSet.equals(club.clubMemberSet) : club.clubMemberSet == null;
+        return getName() != null ? getName().equals(club.getName()) : club.getName() == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = clubId != null ? clubId.hashCode() : 0;
-        result = 31 * result + (dateOfEstablishment != null ? dateOfEstablishment.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (buildingList != null ? buildingList.hashCode() : 0);
-        result = 31 * result + (employeeSet != null ? employeeSet.hashCode() : 0);
-        result = 31 * result + (clubMemberSet != null ? clubMemberSet.hashCode() : 0);
+        int result = getClubId() != null ? getClubId().hashCode() : 0;
+        result = 31 * result + (getDateOfEstablishment() != null ? getDateOfEstablishment().hashCode() : 0);
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Club{" +
-                "clubId=" + clubId +
-                ", dateOfEstablishment=" + dateOfEstablishment +
-                ", name='" + name + '\'' +
-                ", buildingList=" + buildingList +
-                ", employeeSet=" + employeeSet +
-                ", clubMemberSet=" + clubMemberSet +
-                '}';
     }
 }

@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Dyscypliny")
-@Component
+@Component("discipline")
 public class Discipline {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,6 @@ public class Discipline {
     private String description;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "disciplineSet")
-    @Inject
     private Set<ClubMember> clubMemberSet;
 
     public Integer getDisciplineId() {
@@ -61,28 +60,7 @@ public class Discipline {
         this.clubMemberSet = clubMemberSet;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Discipline that = (Discipline) o;
-
-        if (disciplineId != null ? !disciplineId.equals(that.disciplineId) : that.disciplineId != null) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (description != null ? !description.equals(that.description) : that.description != null) return false;
-        return clubMemberSet != null ? clubMemberSet.equals(that.clubMemberSet) : that.clubMemberSet == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = disciplineId != null ? disciplineId.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (clubMemberSet != null ? clubMemberSet.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {
@@ -92,5 +70,28 @@ public class Discipline {
                 ", description='" + description + '\'' +
                 ", clubMemberSet=" + clubMemberSet +
                 '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Discipline that = (Discipline) o;
+
+        if (getDisciplineId() != null ? !getDisciplineId().equals(that.getDisciplineId()) : that.getDisciplineId() != null)
+            return false;
+        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
+        return getDescription() != null ? getDescription().equals(that.getDescription()) : that.getDescription() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getDisciplineId() != null ? getDisciplineId().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        return result;
     }
 }

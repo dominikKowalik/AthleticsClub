@@ -1,5 +1,6 @@
 package com.kowalik.dominik.model;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
  */
 @Entity
 @Table(name  = "Osiagniecia")
-@Component
+@Component("achievement")
 public class Achievement {
 
     @Id
@@ -31,9 +32,10 @@ public class Achievement {
     @Column(name = "miejscowosc", nullable = false)
     private String locality;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_zawodnika", nullable = false)
     @Inject
+    @Qualifier("clubMember")
     private ClubMember clubMember;
 
     public Integer getAchievementId() {
@@ -85,34 +87,6 @@ public class Achievement {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Achievement that = (Achievement) o;
-
-        if (achievementId != null ? !achievementId.equals(that.achievementId) : that.achievementId != null)
-            return false;
-        if (date != null ? !date.equals(that.date) : that.date != null) return false;
-        if (position != null ? !position.equals(that.position) : that.position != null) return false;
-        if (eventName != null ? !eventName.equals(that.eventName) : that.eventName != null) return false;
-        if (locality != null ? !locality.equals(that.locality) : that.locality != null) return false;
-        return clubMember != null ? clubMember.equals(that.clubMember) : that.clubMember == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = achievementId != null ? achievementId.hashCode() : 0;
-        result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + (position != null ? position.hashCode() : 0);
-        result = 31 * result + (eventName != null ? eventName.hashCode() : 0);
-        result = 31 * result + (locality != null ? locality.hashCode() : 0);
-        result = 31 * result + (clubMember != null ? clubMember.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "Achievement{" +
                 "achievementId=" + achievementId +
@@ -122,5 +96,33 @@ public class Achievement {
                 ", locality='" + locality + '\'' +
                 ", clubMember=" + clubMember +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Achievement that = (Achievement) o;
+
+        if (getAchievementId() != null ? !getAchievementId().equals(that.getAchievementId()) : that.getAchievementId() != null)
+            return false;
+        if (getDate() != null ? !getDate().equals(that.getDate()) : that.getDate() != null) return false;
+        if (getPosition() != null ? !getPosition().equals(that.getPosition()) : that.getPosition() != null)
+            return false;
+        if (getEventName() != null ? !getEventName().equals(that.getEventName()) : that.getEventName() != null)
+            return false;
+        return getLocality() != null ? getLocality().equals(that.getLocality()) : that.getLocality() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getAchievementId() != null ? getAchievementId().hashCode() : 0;
+        result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
+        result = 31 * result + (getPosition() != null ? getPosition().hashCode() : 0);
+        result = 31 * result + (getEventName() != null ? getEventName().hashCode() : 0);
+        result = 31 * result + (getLocality() != null ? getLocality().hashCode() : 0);
+        return result;
     }
 }

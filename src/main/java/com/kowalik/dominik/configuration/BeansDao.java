@@ -1,6 +1,7 @@
 package com.kowalik.dominik.configuration;
 
 import com.kowalik.dominik.dao.ClubDaoImpl;
+import com.kowalik.dominik.main.Main;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,20 +16,20 @@ import javax.persistence.Persistence;
  */
 
 @Configuration
-@ComponentScan({"com.kowalik.dominik"})
 public class BeansDao {
 
-   @Bean("entityManagerFactoryBean")
-   public LocalEntityManagerFactoryBean entityManagerFactoryBean(){
-       LocalEntityManagerFactoryBean localEntityManagerFactoryBean =
-               new LocalEntityManagerFactoryBean();
-       localEntityManagerFactoryBean.setPersistenceUnitName("SportClubPersistence");
-       return localEntityManagerFactoryBean;
-   }
+//   @Bean("entityManagerFactoryBean")
+//   public LocalEntityManagerFactoryBean entityManagerFactoryBean(){
+//       LocalEntityManagerFactoryBean localEntityManagerFactoryBean =
+//               new LocalEntityManagerFactoryBean();
+//       localEntityManagerFactoryBean.setPersistenceUnitName("SportClubPersistence");
+//       return localEntityManagerFactoryBean;
+//   }
 
     @Bean
     public ClubDaoImpl clubDao(){
         return new ClubDaoImpl();
     }
+
 
 }

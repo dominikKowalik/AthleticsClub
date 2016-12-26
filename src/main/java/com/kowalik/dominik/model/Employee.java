@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Pracownicy")
-@Component
+@Component("employee")
 public class Employee{
 
     @Id
@@ -53,7 +53,6 @@ public class Employee{
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_adresu")
     @Basic(optional = false)
-    @Inject
     private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -63,14 +62,12 @@ public class Employee{
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_konta")
-    @Inject
     private Account account;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="Pracownicy_Harmonogramy",
             joinColumns={@JoinColumn(name="id_pracownika")},
             inverseJoinColumns={@JoinColumn(name="id_hramonogramu")})
-    @Inject
     private Set<WorkSchedule> workScheduleSet;
 
     public Integer getEmployeeId() {
@@ -169,44 +166,7 @@ public class Employee{
         this.workScheduleSet = workScheduleSet;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Employee employee = (Employee) o;
-
-        if (employeeId != null ? !employeeId.equals(employee.employeeId) : employee.employeeId != null) return false;
-        if (firstname != null ? !firstname.equals(employee.firstname) : employee.firstname != null) return false;
-        if (lastName != null ? !lastName.equals(employee.lastName) : employee.lastName != null) return false;
-        if (education != null ? !education.equals(employee.education) : employee.education != null) return false;
-        if (motherName != null ? !motherName.equals(employee.motherName) : employee.motherName != null) return false;
-        if (fatherName != null ? !fatherName.equals(employee.fatherName) : employee.fatherName != null) return false;
-        if (pesel != null ? !pesel.equals(employee.pesel) : employee.pesel != null) return false;
-        if (club != null ? !club.equals(employee.club) : employee.club != null) return false;
-        if (address != null ? !address.equals(employee.address) : employee.address != null) return false;
-        if (position != null ? !position.equals(employee.position) : employee.position != null) return false;
-        if (account != null ? !account.equals(employee.account) : employee.account != null) return false;
-        return workScheduleSet != null ? workScheduleSet.equals(employee.workScheduleSet) : employee.workScheduleSet == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = employeeId != null ? employeeId.hashCode() : 0;
-        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + (education != null ? education.hashCode() : 0);
-        result = 31 * result + (motherName != null ? motherName.hashCode() : 0);
-        result = 31 * result + (fatherName != null ? fatherName.hashCode() : 0);
-        result = 31 * result + (pesel != null ? pesel.hashCode() : 0);
-        result = 31 * result + (club != null ? club.hashCode() : 0);
-        result = 31 * result + (address != null ? address.hashCode() : 0);
-        result = 31 * result + (position != null ? position.hashCode() : 0);
-        result = 31 * result + (account != null ? account.hashCode() : 0);
-        result = 31 * result + (workScheduleSet != null ? workScheduleSet.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {
@@ -224,6 +184,41 @@ public class Employee{
                 ", account=" + account +
                 ", workScheduleSet=" + workScheduleSet +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Employee employee = (Employee) o;
+
+        if (getEmployeeId() != null ? !getEmployeeId().equals(employee.getEmployeeId()) : employee.getEmployeeId() != null)
+            return false;
+        if (getFirstname() != null ? !getFirstname().equals(employee.getFirstname()) : employee.getFirstname() != null)
+            return false;
+        if (getLastName() != null ? !getLastName().equals(employee.getLastName()) : employee.getLastName() != null)
+            return false;
+        if (getEducation() != null ? !getEducation().equals(employee.getEducation()) : employee.getEducation() != null)
+            return false;
+        if (getMotherName() != null ? !getMotherName().equals(employee.getMotherName()) : employee.getMotherName() != null)
+            return false;
+        if (getFatherName() != null ? !getFatherName().equals(employee.getFatherName()) : employee.getFatherName() != null)
+            return false;
+        return getPesel() != null ? getPesel().equals(employee.getPesel()) : employee.getPesel() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getEmployeeId() != null ? getEmployeeId().hashCode() : 0;
+        result = 31 * result + (getFirstname() != null ? getFirstname().hashCode() : 0);
+        result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
+        result = 31 * result + (getEducation() != null ? getEducation().hashCode() : 0);
+        result = 31 * result + (getMotherName() != null ? getMotherName().hashCode() : 0);
+        result = 31 * result + (getFatherName() != null ? getFatherName().hashCode() : 0);
+        result = 31 * result + (getPesel() != null ? getPesel().hashCode() : 0);
+        return result;
     }
 }
 

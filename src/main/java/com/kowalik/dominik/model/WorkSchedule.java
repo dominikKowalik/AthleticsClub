@@ -14,9 +14,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Harmonogramy_pracy")
-@Component
+@Component("workSchedule")
 public class WorkSchedule {
-
     @Id
     @Column(name = "id_harmonogramu")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +31,6 @@ public class WorkSchedule {
     private Integer workLength;
 
     @ManyToMany(mappedBy = "workScheduleSet")
-    @Inject
     private Set<Employee> employeeSet;
 
     public Integer getWorkScheduleId() {
@@ -67,30 +65,7 @@ public class WorkSchedule {
         this.employeeSet = employeeSet;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        WorkSchedule that = (WorkSchedule) o;
-
-        if (workScheduleId != null ? !workScheduleId.equals(that.workScheduleId) : that.workScheduleId != null)
-            return false;
-        if (workStartTime != null ? !workStartTime.equals(that.workStartTime) : that.workStartTime != null)
-            return false;
-        if (workLength != null ? !workLength.equals(that.workLength) : that.workLength != null) return false;
-        return employeeSet != null ? employeeSet.equals(that.employeeSet) : that.employeeSet == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = workScheduleId != null ? workScheduleId.hashCode() : 0;
-        result = 31 * result + (workStartTime != null ? workStartTime.hashCode() : 0);
-        result = 31 * result + (workLength != null ? workLength.hashCode() : 0);
-        result = 31 * result + (employeeSet != null ? employeeSet.hashCode() : 0);
-        return result;
-    }
 
     @Override
     public String toString() {
@@ -100,5 +75,28 @@ public class WorkSchedule {
                 ", workLength=" + workLength +
                 ", employeeSet=" + employeeSet +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        WorkSchedule that = (WorkSchedule) o;
+
+        if (getWorkScheduleId() != null ? !getWorkScheduleId().equals(that.getWorkScheduleId()) : that.getWorkScheduleId() != null)
+            return false;
+        if (getWorkStartTime() != null ? !getWorkStartTime().equals(that.getWorkStartTime()) : that.getWorkStartTime() != null)
+            return false;
+        return getWorkLength() != null ? getWorkLength().equals(that.getWorkLength()) : that.getWorkLength() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getWorkScheduleId() != null ? getWorkScheduleId().hashCode() : 0;
+        result = 31 * result + (getWorkStartTime() != null ? getWorkStartTime().hashCode() : 0);
+        result = 31 * result + (getWorkLength() != null ? getWorkLength().hashCode() : 0);
+        return result;
     }
 }
